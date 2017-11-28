@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="txt" />
+    <input type="button" id="btn" value="Жмакни меня">
+    <script>
+    function someFunc() {
+
+        alert(document.getElementById("txt").value);
+
+    }
+
+    document.getElementById("btn").onclick = someFunc;
+    </script>
+</body>
+
+</html>

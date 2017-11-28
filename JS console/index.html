@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <textarea id="Result"></textarea>
+    <form id="PreCode">
+        <label>
+            <p>
+                Enter your code
+                <input type="text" id="txt1" />
+                <input type="submit" id="btn" value="Send" />
+            </p>
+        </label>
+    </form>
+    <script>
+    /*function someFunc () {
+    		        alert( document.getElementById("txt" ).value);
+    		    }
+    		    document.getElementById( "btn" ).onclick = someFunc;*/
+
+    function cancelSubmit(event) {
+        event.preventDefault;
+    }
+
+    function showField() {
+        console.log(document.getElementById("txt1").value);
+    }
+
+    function insertField(event) {
+        event.preventDefault;
+        var PreCode = document.getElementById('Result'),
+            Result = document.getElementById('txt1').value;
+
+        PreCode.innerHTML = Result;
+    }
+
+    btn.addEventListener('click', insertField);
+    //btn.addEventListener( 'click', insertField );
+    //cancleSubmit();
+    </script>
+</body>
+
+</html>
