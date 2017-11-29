@@ -1,34 +1,45 @@
-var DragObject = document.getElementById('DragObject');
+var DragObject = document.getElementById( 'DragObject' );
+var i = 0;
 
-DragObject.onmousedown = function(e) { // 1. отследить нажатие
+DragObject.onmousedown = function( e ) {
 
-    // подготовить к перемещению
-    // 2. разместить на том же месте, но в абсолютных координатах
-    DragObject.style.position = 'absolute';
-    moveAt(e);
-    // переместим в body, чтобы мяч был точно не внутри position:relative
-    document.body.appendChild(DragObject);
+        i++;
+        var coords = getCoords( DragObject );
+        var shiftX = e.pageX - coords.left;
+        var shiftY = e.pageY - coords.top;
 
-    DragObject.style.zIndex = 1000; // показывать мяч над другими элементами
-
-    // передвинуть мяч под координаты курсора
-    // и сдвинуть на половину ширины/высоты для центрирования
-    function moveAt(e) {
-        DragObject.style.left = e.pageX - DragObject.offsetWidth / 2 + 'px';
-        DragObject.style.top = e.pageY - DragObject.offsetHeight / 2 + 'px';
-    }
-
-    // 3, перемещать по экрану
-    document.onmousemove = function(e) {
+        DragObject.style.position = 'absolute';
+        document.body.appendChild(DragObject);
         moveAt(e);
-    }
 
-    // 4. отследить окончание переноса
-    DragObject.onmouseup = function() {я
+        DragObject.style.zIndex = 1000; // над другими элементами
+
+        function moveAt(e) {
+            DragObject.style.left = e.pageX - shiftX + 'px';
+            DragObject.style.top = e.pageY - shiftY + 'px';
+        }
+
+        document.onmousemove = function(e) {
+            moveAt(e);
+        };
+        if( i % 2 === 0){
+            document.onmousemove = null;
+        }
+    }
+/*    DragObject.onmouseup = function() {
         document.onmousemove = null;
         DragObject.onmouseup = null;
-    }
-    DragObject.ondragstart = function() {
-        return false;
+    };
+*/
+
+DragObject.ondragstart = function() {
+    return false;
+};
+
+function getCoords(elem) { // кроме IE8-
+    var box = elem.getBoundingClientRect();
+    return {
+        top: box.top + pageYOffset,
+        left: box.left + pageXOffset
     };
 }
