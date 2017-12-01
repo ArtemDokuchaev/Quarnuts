@@ -1,4 +1,17 @@
-textarea {
-	width: 100%;
-	height: 75%;
+body{
+	margin: 0;
+	padding: 0;
+}
+textarea{
+	width: 100vw;
+	overflow: scroll;
+}
+#Result {
+	height: 50vh;
+	resize: none;
+	background-color: white;
+	color: black;
 } 
+#PreCodeText {
+	height: 25vh; 
+}
