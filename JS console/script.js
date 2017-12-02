@@ -24,7 +24,6 @@ function insertField( event ) {
         Result.innerHTML = Result.value + eval( PreCode.value );
 
 
-
     } catch ( err ) {
 
         var ErrorText = 'Error:\n' + err.name + ':' + err.message + '\n' + err.stack; 
