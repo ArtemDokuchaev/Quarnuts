@@ -8,11 +8,11 @@
     }*/
     function processCommand ( e ) {
     e.preventDefault();
-    str = e.target[ 0 ].value;
+    var str = e.target[ 0 ].value;
 
     try {
 
-        code = document.createElement( "section" );
+        var code = document.createElement( "section" );
         code.innerText = str + "\n";
 
         var ResultArea = document.getElementById( "ResultArea" );
@@ -30,7 +30,7 @@
         response.classList = "error";
         response.innerText = "Ошибка: " + err.name + "; " + err.message + "\n" + err.stack + "\n";
         ResultArea.appendChild( response );
-        ResultArea.scrollTo(0,ResultArea.scrollHeight);
+        ResultArea.scrollTo( 0,ResultArea.scrollHeight );
         console.log(ResultArea.scrollHeight);
 
     }
