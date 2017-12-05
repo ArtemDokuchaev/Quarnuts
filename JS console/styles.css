@@ -1,17 +1,30 @@
 body{
-	margin: 0;
+	margin: 5px 15px 0px 5px;
 	padding: 0;
 }
 textarea{
-	width: 100vw;
+	width: 100%;
 	overflow: scroll;
 }
 #Result {
-	height: 50vh;
+	height: 60vh;
 	resize: none;
 	background-color: white;
 	color: black;
 } 
 #PreCodeText {
 	height: 25vh; 
+}
+
+.code {
+	background-color: #FFDAB9;
+}
+
+.errorCode{
+	background-color: red;
+	color: DarkRed;
+}
+
+.successCode{
+	background-color: #32CD32;
 }
