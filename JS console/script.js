@@ -1,3 +1,4 @@
+"use strict";
 function cancelSubmit( event ) {
 
      event.preventDefault();
@@ -5,24 +6,27 @@ function cancelSubmit( event ) {
 
 }
 
-function ctrlTrigger( event ) {
+function ctrlPressed( event ) {
 
     if ( event.charCode === 10 ) {
         document.getElementById('SubmitButton').click();
     }
 
 }
+
 function insertField( event ) {
     cancelSubmit( event );
-
+    var Code = event.target[ 0 ].value;
+    console.log( Code ); 
     var Result = document.getElementById( 'Result' ),
         PreCode = document.getElementById( 'PreCodeText' );
-    Result.innerHTML = Result.value + '\n' + PreCode.value + '\n';
+    Result.innerHTML = Result.value + '\n' + Code + '\n';
 
     try {
-        eval( PreCode );
-        Result.innerHTML = Result.value + eval( PreCode.value );
+        Result.innerHTML += eval( Code );
 
+
+        Result.scrollTo(0,Result.scrollHeight);
 
     } catch ( err ) {
 
@@ -30,8 +34,10 @@ function insertField( event ) {
         console.log( ErrorText );
         Result.innerHTML = Result.value + '\n' + ErrorText + '\n';
 
+
+        Result.scrollTo(0,Result.scrollHeight);
     }
 }
 
-SubmitButton.addEventListener( 'click', insertField );
-PreCodeText.addEventListener('keypress', ctrlTrigger );
+document.getElementById( "PreCodeForm" ).addEventListener( 'submit', insertField );
+PreCodeText.addEventListener('keypress', ctrlPressed );
