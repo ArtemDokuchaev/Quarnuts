@@ -14,7 +14,7 @@ function ctrlPressed( event ) {
 
 }
 
-function insertField( event ) {
+function commandHandler( event ) {
     cancelSubmit( event );
     var Code = event.target[ 0 ].value;
     console.log( Code ); 
@@ -23,9 +23,7 @@ function insertField( event ) {
     Result.innerHTML = Result.value + '\n' + Code + '\n';
 
     try {
-        Result.innerHTML += eval( Code );
-
-
+        Result.innerHTML = Result.value + '\n' + eval( Code ) + '\n';
         Result.scrollTo(0,Result.scrollHeight);
 
     } catch ( err ) {
@@ -39,5 +37,5 @@ function insertField( event ) {
     }
 }
 
-document.getElementById( "PreCodeForm" ).addEventListener( 'submit', insertField );
+document.getElementById( "PreCodeForm" ).addEventListener( 'submit', commandHandler );
 PreCodeText.addEventListener('keypress', ctrlPressed );
