@@ -2,29 +2,40 @@ body{
 	margin: 5px 15px 0px 5px;
 	padding: 0;
 }
-textarea{
-	width: 100%;
-	overflow: scroll;
+#SubmitButton{
+	color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: rgb(212,75,56); /* фон кнопки */
+  padding: .7em 1.5em; /* отступ от текста */
+  outline: none; /* убирать контур в Mozilla */
 }
-#Result {
+#SubmitButton:hover{
+	background: rgb(232,95,76);
+}
+#SubmitButton:active{
+	background: rgb(152,15,0);
+}
+#ResultArea {
 	height: 60vh;
-	resize: none;
-	background-color: white;
-	color: black;
+	outline-style: solid;
+	outline-width: 1px;
+	overflow: scroll;
+	width: 100%
 } 
 #PreCodeText {
 	height: 25vh; 
+	width: 100%;
+	border-color: black;
+	overflow: scroll;
 }
-
 .code {
 	background-color: #FFDAB9;
 }
-
 .errorCode{
-	background-color: red;
-	color: DarkRed;
+	background-color: #EF585A;
+	color: #570102;
 }
-
 .successCode{
-	background-color: #32CD32;
+	background-color: #7ED58A;
 }

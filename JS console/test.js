@@ -13,7 +13,7 @@
     try {
 
         var code = document.createElement( "section" );
-        code.innerText = str + "\n";
+        code.innerText = str + "\n";    
 
         var ResultArea = document.getElementById( "ResultArea" );
         var response = document.createElement( "section" );

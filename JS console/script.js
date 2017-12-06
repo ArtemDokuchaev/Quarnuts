@@ -15,27 +15,35 @@ function ctrlPressed( event ) {
 }
 
 function commandHandler( event ) {
+
     cancelSubmit( event );
-    var Code = event.target[ 0 ].value;
-    console.log( Code ); 
-    var Result = document.getElementById( 'Result' ),
-        PreCode = document.getElementById( 'PreCodeText' );
-    Result.innerHTML = Result.value + '\n' + Code + '\n';
-
+    var CodeText = event.target[ 0 ].value;
+    console.log( CodeText ); 
+    var ResultArea = document.getElementById( 'ResultArea' ),
+        SectionCode = document.createElement( 'section' ),
+        SectionReturn = document.createElement( 'section' );
+    SectionCode.innerText = CodeText + '\n';
+    SectionCode.classList = 'code';
+    ResultArea.appendChild( SectionCode );
     try {
-        Result.innerHTML = Result.value + '\n' + eval( Code ) + '\n';
-        Result.scrollTo(0,Result.scrollHeight);
 
-    } catch ( err ) {
+        SectionReturn.innerText = eval( CodeText ) + '\n';
+        SectionReturn.classList = 'successCode';
+        ResultArea.appendChild( SectionReturn );
+        ResultArea.scrollTo(0,ResultArea.scrollHeight);
 
-        var ErrorText = 'Error:\n' + err.name + ':' + err.message + '\n' + err.stack; 
+    } catch ( error ) {
+
+        var ErrorText = 'Error:\n' + error.stack + '\n'; 
+        SectionReturn.innerText = ErrorText;
+        SectionReturn.classList = 'errorCode';
         console.log( ErrorText );
-        Result.innerHTML = Result.value + '\n' + ErrorText + '\n';
+        ResultArea.appendChild( SectionReturn );
+        ResultArea.scrollTo(0,ResultArea.scrollHeight);
 
-
-        Result.scrollTo(0,Result.scrollHeight);
     }
+
 }
 
-document.getElementById( "PreCodeForm" ).addEventListener( 'submit', commandHandler );
+document.getElementById( 'PreCodeForm' ).addEventListener( 'submit', commandHandler );
 PreCodeText.addEventListener('keypress', ctrlPressed );
