@@ -46,4 +46,4 @@ function commandHandler( event ) {
 }
 
 document.getElementById( 'PreCodeForm' ).addEventListener( 'submit', commandHandler );
-PreCodeText.addEventListener('keypress', ctrlPressed );
+PreCodeArea.addEventListener('keypress', ctrlPressed );
