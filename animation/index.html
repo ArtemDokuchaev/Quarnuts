@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			background-color: #333;
+		}
+		.turnOn{
+			width: 200px;
+			height: 200px;			
+			margin-left: 40%;
+			border-radius: 100%;
+			background-color: yellow;
+			border: 5px solid black;
+			animation: lightning 1s linear;
+			box-shadow: 5px 5px 50px 0 yellow;
+		}
+		@keyframes lightning{
+			0%, 40%, 90%{
+				box-shadow: none;
+			}
+			25%, 50%, 75%{
+				box-shadow: 5px 5px 50px 0 yellow;
+			}
+
+		}
+	</style>
+</head>
+<body>
+	<input type="submit" id="TurnOn" value="Turn On"/>
+	<div id="LightBulb" class=""></div>
+	<script src="./scripts.js"></script>
+</body>
+</html>
