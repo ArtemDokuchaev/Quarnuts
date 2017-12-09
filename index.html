@@ -4,44 +4,25 @@
 	<meta charset="UTF-8">
 	<title>Online Shop</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<meta property="og:title" content="Dakine Manual 20 л Ruins">
-	<meta property="og:type" content="product">
-	<meta property="og:url" content="http://artemd.edu.quarnuts.com/OnlineShop/">
-	<meta property="og:image" content="http://artemd.edu.quarnuts.com/OnlineShop/dakine_backpack.jpg">
-	<meta property="og:description" content="Мужской рюкзак Dakine Manual. Цена 1099грн.">
+	<meta property="og:title" content="Dakine Manual 20 л Ruins"/>
+	<meta property="og:type" content="product"/>
+	<meta property="og:url" content="http://artemd.edu.quarnuts.com/OnlineShop/"/>
+	<meta property="og:image" content="http://artemd.edu.quarnuts.com/OnlineShop/dakine_backpack.jpg"/>
+	<meta property="og:description" content="Мужской рюкзак Dakine Manual. Цена 1099грн."/>
 	<style>
 		*{
 			box-sizing: border-box;
-		}
-		.Content{
-			width: 800px;
-			height: 950px;
-			padding: 2%;
-			margin: 0 25% 0 25%;
 		}
 		header{
 			width: 800px;
 			height: 50px;
 			margin: 1% 25% 0 25%;
 		}		
-		.headerList li{
-			margin-left: 75px;
-			padding: 5px;
-			border-radius: 20px;
-			display: inline;
-		}
 		img{
 			width: 170px;
 			height: 280px;
 			float: left;
 			margin-right: 5px;
-		}
-		.ButtonPrice{
-			width: 700px;
-			height: 50px;
-		}
-		.OrderButton, .Price{
-			float: right;
 		}
 		textarea{
 			width: 500px;
@@ -50,6 +31,25 @@
 		a.Order{
 			margin-left: 5px; 
 			padding: 10px 20px;
+		}
+		.Content{
+			width: 800px;
+			height: 950px;
+			padding: 2%;
+			margin: 0 25% 0 25%;
+		}
+		.headerList li{
+			margin-left: 75px;
+			padding: 5px;
+			border-radius: 20px;
+			display: inline;
+		}
+		.ButtonPrice{
+			width: 700px;
+			height: 50px;
+		}
+		.OrderButton, .Price{
+			float: right;
 		}
 	</style>
 </head>
@@ -63,14 +63,14 @@
 		</ul>
 	</header>
 	<div class="Content">
-		<img alt="" title="Dakine Backpack" src="http://artemd.edu.quarnuts.com/OnlineShop/dakine_backpack.jpg">
+		<img alt="dakine_backpack" title="Dakine Backpack" src="http://artemd.edu.quarnuts.com/OnlineShop/dakine_backpack.jpg"/>
 		<h1>Рюкзак Dakine Manual 20 л Ruins</h1>
+		<hr>
 		<p>
-			<hr>
 			<b>Описание:</b>
 			<p>Рюкзак мужской Dakine Manual – это удобный городской рюкзак, для тех, кто ведет активный образ жизни. Имеет одно большое отделение и одно маленькое. Снаружи располагается две ленты на липучках, на которые вы можете повесить ваш скейтборд, шлем или любую другую габаритную поклажу. Несмотря на свою простоту рюкзак сделан на совесть. Каждое соединение прошито в два шва, ткань очень плотная, так что за долговечность рюкзака волноваться не приходится. Картину завершает ортодоксальный дизайн.</p>
-			<hr>
 		</p>
+		<hr>
 		<p>
 			<h2>Характеристика товара</h2>
 			<table>
@@ -125,7 +125,7 @@
 				<a href="" class="Order">Купить</a>
 			</p>
 			<p class="Price">
-				Цена:1099грн
+				Цена:<span id="BackpackPrice">1099грн</span>
 			</p>
 		</div>
 		<div class="CommentSection">
@@ -151,6 +151,17 @@
 			<li>Адрес: г. Одесса, Соборная площадь, 1</li>
 		</ul>
 	</footer>
-	<link rel="stylesheet" href="./styles.css">
+	<noscript>
+		<link rel="stylesheet" href="/styles.css"/>
+	</noscript>
+	<script type="text/javascript">		
+            window.addEventListener( 'load', function() {
+                var Link = document.createElement( 'LINK' );
+                Link.rel = 'stylesheet';
+                Link.href = 'styles.css';
+                document.body.appendChild( Link );
+            } );
+        
+	</script>
 </body>
 </html>

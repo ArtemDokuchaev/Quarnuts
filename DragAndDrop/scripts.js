@@ -1,9 +1,10 @@
+'use strict'
 var DragObject = document.getElementById( 'DragObject' );
-var i = 0;
+var i = false;
 
 DragObject.onmousedown = function( e ) {
 
-        i++;
+        i = !i;
         var coords = getCoords( DragObject );
         var shiftX = e.pageX - coords.left;
         var shiftY = e.pageY - coords.top;
@@ -11,18 +12,16 @@ DragObject.onmousedown = function( e ) {
         DragObject.style.position = 'absolute';
         document.body.appendChild(DragObject);
         moveAt(e);
-
         DragObject.style.zIndex = 1000; // над другими элементами
 
         function moveAt(e) {
             DragObject.style.left = e.pageX - shiftX + 'px';
             DragObject.style.top = e.pageY - shiftY + 'px';
         }
-
         document.onmousemove = function(e) {
             moveAt(e);
         };
-        if( i % 2 === 0){
+        if( i === false){
             document.onmousemove = null;
         }
     }
@@ -31,7 +30,6 @@ DragObject.onmousedown = function( e ) {
         DragObject.onmouseup = null;
     };
 */
-
 DragObject.ondragstart = function() {
     return false;
 };
@@ -43,3 +41,4 @@ function getCoords(elem) { // кроме IE8-
         left: box.left + pageXOffset
     };
 }
+// document.getElementById = 
