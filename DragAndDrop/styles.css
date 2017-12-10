@@ -1,10 +1,10 @@
 .draggable{
-
 	width: 100px;
 	height: 100px;
 	background-color: black;
+	position: absolute;
 }
-#PlusButton{
+#AddButton{
 	width: 50px;
 	height: 50px;
 	float: left;
@@ -12,7 +12,7 @@
 	text-align:center;
 	line-height: 50px
 }
-#MinusButton{
+#DeleteButton{
 	width: 50px;
 	height: 50px;
 	float: right;
