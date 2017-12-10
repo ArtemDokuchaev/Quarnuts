@@ -36,11 +36,17 @@ if ( DragObject ){
 		}
 }
 }
+
 /*    DragObject.onmouseup = function() {
 		document.onmousemove = null;
 		DragObject.onmouseup = null;
 	};
 */
+function createObject(){
+    var ObjectToDrag = createElement( 'div' );
+    
+}
+
 DragObject.ondragstart = function() {
 	return false;
 };
@@ -52,4 +58,5 @@ function getCoords(elem) { // кроме IE8-
 		left: box.left + pageXOffset
 	};
 }
-document.getElementById("PlusButton").addEventListener('click',)
+document.getElementById( 'CreateButton' ).addEventListener( 'click', createObject );
+
