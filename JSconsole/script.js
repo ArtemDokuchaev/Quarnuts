@@ -1,19 +1,5 @@
 'use strict';
 /**
-*@Name	Ctrl button is  pressed
-*@About	Checking if Ctrl+Enter is pressed
-*@Params	[ Event ] event
-*@Author	ArtemD
-*@Return	Void
-*/
-function ctrlPressed( event ) {
-
-	if ( event.charCode === 10 ) {
-		document.getElementById( 'SubmitButton' ).click();
-	}
-
-}
-/**
 *@Name	Command handler
 *@About	Processing commands given by user
 *@Params	[ Event ] event
@@ -55,4 +41,10 @@ function commandHandler( event ) {
 }
 
 document.getElementById( 'PreCodeForm' ).addEventListener( 'submit', commandHandler );
-PreCodeArea.addEventListener('keypress', ctrlPressed );
+PreCodeArea.addEventListener('keypress', function( event ) {
+	
+	if ( event.charCode === 10 ) {
+		document.getElementById( 'SubmitButton' ).click();
+	}
+
+} );
