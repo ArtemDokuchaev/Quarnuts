@@ -1,62 +1,54 @@
 'use strict'
-var DragObject = document.getElementById( 'DraggableObject' );
 var Clicked = false;
+document.getElementById( 'CreateButton' ).addEventListener( 'click', function( event ) {
+	
+	if ( ! document.getElementById( 'DraggableObject' ) ) {
+			
+		var DraggableObject = document.createElement( 'div' );
+		DraggableObject.id = 'DraggableObject';
+		DraggableObject.classList.add( 'draggable' );
+		document.body.appendChild( DraggableObject );
 
-function moveObject( event ){
-    
-    if ( DragObject ){
-        
-        DragObject.onmousedown = function( e ) {
+		Clicked = !Clicked;
+		var coords = getCoords( DraggableObject );
+		var shiftX = event.pageX - coords.left;
+		var shiftY = event.pageY - coords.top;
 
-        Clicked = !Clicked;
-        var coords = getCoords( DragObject );
-        var shiftX = e.pageX - coords.left;
-        var shiftY = e.pageY - coords.top;
-     
-        DragObject.style.zIndex = 1000; // над другими элементами
-        document.onmousemove = function(e) {
-            moveAt( e, shiftX, shiftY );
-        };
-        if( Clicked === false){
-            document.onmousemove = null;
-        }
-        DragObject.ondragstart = function() {
-            return false;
-        };
+		DraggableObject.style.zIndex = 1000; // над другими элементами
 
-        }
+		DraggableObject.addEventListener( 'click', function( e ){
+		 	
+		 	Clicked = !Clicked;
+		 	coords = getCoords( DraggableObject );
+		 	shiftX = e.pageX - coords.left;
+			shiftY = e.pageY - coords.top;
 
-    }
+		});
+		document.addEventListener('mousemove', function( event2 ) {
+			
+			if( Clicked ){
+				moveAt( event2, shiftX, shiftY );
+			}
 
-}
-            function moveAt( e, shiftX, shiftY ) {
-                DragObject.style.left = e.pageX - shiftX + 'px';
-                DragObject.style.top = e.pageY - shiftY + 'px';
-            }
-document.getElementById( 'CreateButton' ).addEventListener( 'click', function( event ){
-    
-    if ( ! DragObject ){
-            
-            var DraggableObject = document.createElement( 'div' );
-            DraggableObject.id = 'DraggableObject';
-            DraggableObject.classList.add( 'draggable' );
-            document.body.appendChild( DraggableObject );
-            DragObject = document.getElementById( 'DraggableObject' );
-            moveObject( event );
-            DragObject.click();
-    }
+		});
+		DraggableObject.ondragstart = function() {
+			return false;
+		};
+
+	}
 } );
-/*    DragObject.onmouseup = function() {
-        document.onmousemove = null;
-        DragObject.onmouseup = null;
-    };
-*/
 
-function getCoords(elem) { // кроме IE8-
-    var box = elem.getBoundingClientRect();
-    return {
-        top: box.top + pageYOffset,
-        left: box.left + pageXOffset
-    };
+function moveAt( e, shiftX, shiftY ) {
+
+	DraggableObject.style.left = e.pageX - shiftX + 'px';
+	DraggableObject.style.top = e.pageY - shiftY + 'px';
+
 }
 
+function getCoords( elem ) { // кроме IE8-
+	var box = elem.getBoundingClientRect();
+	return {
+		top: box.top + pageYOffset,
+		left: box.left + pageXOffset
+	};
+}
