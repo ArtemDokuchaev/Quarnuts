@@ -1,19 +1,5 @@
 'use strict';
 /**
-*@Name	Cancel submit
-*@About	Preventing submit event and showing event details in console
-*@Params	[ Event ] event
-*@Author	ArtemD
-*@Return	Void
-*/
-function cancelSubmit( event ) {
-
-	event.preventDefault();
-	console.dir( event );
-
-}
-
-/**
 *@Name	Ctrl button is  pressed
 *@About	Checking if Ctrl+Enter is pressed
 *@Params	[ Event ] event
@@ -27,7 +13,6 @@ function ctrlPressed( event ) {
 	}
 
 }
-
 /**
 *@Name	Command handler
 *@About	Processing commands given by user
@@ -39,7 +24,8 @@ function ctrlPressed( event ) {
 */
 function commandHandler( event ) {
 
-	cancelSubmit( event );
+	event.preventDefault();
+	console.dir( event );
 	var CodeText = event.target[ 0 ].value;
 	console.log( CodeText ); 
 	var ResultArea = document.getElementById( 'ResultArea' ),
