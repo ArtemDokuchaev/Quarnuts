@@ -16,22 +16,22 @@ document.getElementById( 'CreateButton' ).addEventListener( 'click', function( e
 
 		DraggableObject.style.zIndex = 1000; // над другими элементами
 
-		DraggableObject.addEventListener( 'click', function( e ){
+		DraggableObject.addEventListener( 'click', function( event ){
 		 	
 		 	Clicked = !Clicked;
 		 	coords = getCoords( DraggableObject );
-		 	shiftX = e.pageX - coords.left;
-			shiftY = e.pageY - coords.top;
+		 	shiftX = event.pageX - coords.left;
+			shiftY = event.pageY - coords.top;
 
 		});
-		document.addEventListener('mousemove', function( event2 ) {
+		document.addEventListener('mousemove', function( event ) {
 			
 			if( Clicked ){
-				moveAt( event2, shiftX, shiftY );
+				moveAt( event, shiftX, shiftY );
 			}
 
 		});
-		DraggableObject.ondragstart = function() {
+		document.ondragstart = function() {
 			return false;
 		};
 
@@ -39,10 +39,10 @@ document.getElementById( 'CreateButton' ).addEventListener( 'click', function( e
 } );
 
 function moveAt( e, shiftX, shiftY ) {
-
-	DraggableObject.style.left = e.pageX - shiftX + 'px';
-	DraggableObject.style.top = e.pageY - shiftY + 'px';
-
+	setTimeout( function(){
+		DraggableObject.style.left = e.pageX - shiftX + 'px';
+		DraggableObject.style.top = e.pageY - shiftY + 'px';
+	}, 100);
 }
 
 function getCoords( elem ) { // кроме IE8-
